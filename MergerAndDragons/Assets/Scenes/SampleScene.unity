@@ -354,6 +354,7 @@ MonoBehaviour:
   clickedCell: {fileID: 0}
   droppedCell: {fileID: 0}
   temp: {fileID: 0}
+  lerpSpeed: 10
 --- !u!4 &540242754
 Transform:
   m_ObjectHideFlags: 0

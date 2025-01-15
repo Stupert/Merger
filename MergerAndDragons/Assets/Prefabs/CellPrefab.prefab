@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6b9d22544681e4d94360305285b698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergeItem: {fileID: 11400000, guid: f00c5709b6107ed40a8cb9d7f6ba7ab6, type: 2}
+  mergeItem: {fileID: 0}
   spriteRenderer: {fileID: 5932356040601204210}
   pos: {x: 0, y: 0}
   collider: {fileID: 7441033836005446322}

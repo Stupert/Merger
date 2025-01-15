@@ -10,6 +10,7 @@ public class MouseBehaviour : MonoBehaviour
     [SerializeField]Cell clickedCell;
     public Cell droppedCell;
     public Mergables temp;
+    public float lerpSpeed = 5f;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class MouseBehaviour : MonoBehaviour
                 clickedCell.EnableColliders();
             }
 
+            clickedCell.spriteRenderer.sortingOrder = 0;
             droppedCell = null;
             clickedCell = null;
         }
@@ -100,6 +102,7 @@ public class MouseBehaviour : MonoBehaviour
         {
             Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
             clickedCell = hitCollider.gameObject.GetComponent<Cell>();
+            clickedCell.spriteRenderer.sortingOrder = 1;
             clickedCell.DisableColliders();
             isDragging = true;
         }
@@ -110,6 +113,7 @@ public class MouseBehaviour : MonoBehaviour
     {
         // Update sprite position to follow the mouse
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        clickedCell.transform.position = new Vector2(mousePosition.x, mousePosition.y);
+        //clickedCell.transform.position = new Vector2(mousePosition.x, mousePosition.y);
+        clickedCell.transform.position = Vector3.Lerp(clickedCell.transform.position, mousePosition, Time.deltaTime * lerpSpeed);
     }
 }
