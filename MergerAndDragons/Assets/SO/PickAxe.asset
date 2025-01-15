@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PickAxe
   m_EditorClassIdentifier: 
   name: Pick
-  image: {fileID: 21300000, guid: f12e77a6ecdd58c45a4f889867a1f5c3, type: 3}
+  image: {fileID: 21300000, guid: ad4ed5d78a742d946ad0aa9a0c7d4cba, type: 3}
   mergeOutcome: {fileID: 0}
-  NullifiedMerger: {fileID: 0}
   itemCode: 0

@@ -14,7 +14,6 @@ public class Cell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         UpdateCell();
     }
 

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0459222c634acd4fbfec3bae1652e73, type: 3}
-  m_Name: BattleAxe
+  m_Name: 1BlueGem
   m_EditorClassIdentifier: 
-  name: BattleAxe
-  image: {fileID: 21300000, guid: 50377a983d3bcba4cbefcb4b090ba076, type: 3}
-  mergeOutcome: {fileID: 11400000, guid: 5ff3d7b430396394d8426d6a7f524f37, type: 2}
-  itemCode: 2
+  name: 
+  image: {fileID: 21300000, guid: e41a4029015c83a448dded1d2f9dfafc, type: 3}
+  mergeOutcome: {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
+  itemCode: 0

@@ -153,8 +153,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardParent: {fileID: 1682982408}
-  boardSize: {x: 5, y: 6}
+  boardSize: {x: 10, y: 12}
   tilePrefab: {fileID: 6098864534424212709, guid: 3e11ce3b9f568e24ca2f55e662cdf25c, type: 3}
+  mergeablesLow:
+  - {fileID: 11400000, guid: f00c5709b6107ed40a8cb9d7f6ba7ab6, type: 2}
+  - {fileID: 11400000, guid: 77dd8f3e22252cd4e98a1c26ba1cff1b, type: 2}
+  - {fileID: 11400000, guid: 6b99535dd51aa8e408c3aeed6cb0039f, type: 2}
+  - {fileID: 11400000, guid: 6488e60bfa379734db985b8ab4a746cc, type: 2}
+  mergeablesMid:
+  - {fileID: 11400000, guid: 074117a03331a1d449182744ddae27ab, type: 2}
+  - {fileID: 11400000, guid: 5b32ad1954c2eb14c913c0550f7a105f, type: 2}
+  - {fileID: 11400000, guid: 90104b04dbca3a946883e2c40892b6de, type: 2}
+  - {fileID: 11400000, guid: b20f3ef6f40333a4dbc345de7f86b6d5, type: 2}
+  mergeablesHigh:
+  - {fileID: 11400000, guid: 519873c88849cef4d8881b58426be9c1, type: 2}
+  - {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
+  - {fileID: 11400000, guid: a576d4aa00a58dd478c6de5319f648f6, type: 2}
+  allCells: []
 --- !u!4 &280681555
 Transform:
   m_ObjectHideFlags: 0
@@ -338,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedCell: {fileID: 0}
   droppedCell: {fileID: 0}
+  temp: {fileID: 0}
 --- !u!4 &540242754
 Transform:
   m_ObjectHideFlags: 0
@@ -460,8 +476,8 @@ Transform:
   m_GameObject: {fileID: 1682982408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.34, y: -2.5, z: 0}
+  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
