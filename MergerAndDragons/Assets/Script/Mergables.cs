@@ -9,5 +9,5 @@ public class Mergables : ScriptableObject
     public Sprite image;
     public Mergables mergeOutcome;
     public int itemCode;
-
+    public float currencyPerTick;
 }
