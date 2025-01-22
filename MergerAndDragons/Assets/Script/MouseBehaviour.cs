@@ -6,11 +6,23 @@ using static UnityEditor.PlayerSettings;
 public class MouseBehaviour : MonoBehaviour
 {
     private Camera mainCamera;
+    [SerializeField]
     private bool isDragging = false;
-    [SerializeField]Cell clickedCell;
+    [SerializeField] Cell clickedCell;
     public Cell droppedCell;
-    public Mergables temp;
+    [HideInInspector] public Mergables temp;
     public float lerpSpeed = 5f;
+
+
+    #region clicked variables
+    public Cell selectedCell;
+    public float movementTheshhold;
+    public float timethreshhold;
+    private Vector2 initialMousePosition;
+
+    public bool hasClicked = false;
+    #endregion
+
 
     void Start()
     {
@@ -21,20 +33,37 @@ public class MouseBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            
             CheckForSpriteClick();
+        }
+
+        if (hasClicked && Vector2.Distance(mainCamera.ScreenToWorldPoint(Input.mousePosition), initialMousePosition) > movementTheshhold)
+        {
+            isDragging = true;
         }
 
         if (isDragging && Input.GetMouseButton(0))
         {
+            hasClicked = false;
             DragSprite();
+        }
+
+        if(Input.GetMouseButtonUp(0) && !isDragging && hasClicked)
+        {
+            selectedCell = clickedCell;
+            clickedCell.EnableColliders();
+            clickedCell = null;
+            hasClicked = false;
+            HandleCellClick();
         }
 
         if (Input.GetMouseButtonUp(0) && isDragging)
         {
+            hasClicked = false;
             isDragging = false;
             Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
-            
+
             if (hitCollider != null)
             {
                 droppedCell = hitCollider.GetComponent<Cell>();
@@ -100,11 +129,13 @@ public class MouseBehaviour : MonoBehaviour
 
         if (hitCollider != null && hitCollider.gameObject.GetComponent<Cell>().mergeItem != null)
         {
+            initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
             clickedCell = hitCollider.gameObject.GetComponent<Cell>();
             clickedCell.spriteRenderer.sortingOrder = 1;
             clickedCell.DisableColliders();
-            isDragging = true;
+            hasClicked = true;
+            //isDragging = true;
         }
 
     }
@@ -116,4 +147,10 @@ public class MouseBehaviour : MonoBehaviour
         //clickedCell.transform.position = new Vector2(mousePosition.x, mousePosition.y);
         clickedCell.transform.position = Vector3.Lerp(clickedCell.transform.position, mousePosition, Time.deltaTime * lerpSpeed);
     }
+
+    private void HandleCellClick()
+    {
+        Debug.Log("Cell clicked without dragging: " + selectedCell.pos + ". Cell is: " + selectedCell.mergeItem.name);
+    }
+
 }
