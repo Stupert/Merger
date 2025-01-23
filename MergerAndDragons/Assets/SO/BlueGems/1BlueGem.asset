@@ -16,3 +16,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: e41a4029015c83a448dded1d2f9dfafc, type: 3}
   mergeOutcome: {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
   itemCode: 0
+  currencyPerTick: 0
+  itemDescription: A blue gem. Not good to look at and cracked. Flawed and unimpressive.

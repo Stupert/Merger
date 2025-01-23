@@ -10,4 +10,5 @@ public class Mergables : ScriptableObject
     public Mergables mergeOutcome;
     public int itemCode;
     public float currencyPerTick;
+    public string itemDescription = "This is a temporary descrition of this item";
 }

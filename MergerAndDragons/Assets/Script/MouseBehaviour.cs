@@ -19,9 +19,10 @@ public class MouseBehaviour : MonoBehaviour
     public float movementTheshhold;
     public float timethreshhold;
     private Vector2 initialMousePosition;
-
     public bool hasClicked = false;
     #endregion
+
+    [SerializeField] UIManager uiManager;
 
 
     void Start()
@@ -33,7 +34,7 @@ public class MouseBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+            uiManager.ClearText();
             CheckForSpriteClick();
         }
 
@@ -151,6 +152,7 @@ public class MouseBehaviour : MonoBehaviour
     private void HandleCellClick()
     {
         Debug.Log("Cell clicked without dragging: " + selectedCell.pos + ". Cell is: " + selectedCell.mergeItem.name);
+        uiManager.UpdateText(selectedCell.mergeItem.itemDescription);
     }
 
 }

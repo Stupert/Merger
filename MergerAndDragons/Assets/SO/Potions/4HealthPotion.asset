@@ -16,3 +16,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: ed2f2168b959e0847bbbbd8f05243314, type: 3}
   mergeOutcome: {fileID: 0}
   itemCode: 0
+  currencyPerTick: 0
+  itemDescription: A plentiful potion that can cure the worst diseases and wounds.
+    Can bring the consumer back from the brink of death.

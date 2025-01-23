@@ -16,3 +16,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: f7105324c3c9680428997549feb1fcc8, type: 3}
   mergeOutcome: {fileID: 0}
   itemCode: 0
+  currencyPerTick: 0
+  itemDescription: A gem of immaculate quality. Jewelers, thieves and collectors
+    best friend.

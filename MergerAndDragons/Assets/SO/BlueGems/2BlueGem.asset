@@ -16,3 +16,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 6ca4b417ecea6914cbf8a07b299a43f1, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 52c6e803c28377e48b7f361225467a00, type: 2}
   itemCode: 0
+  currencyPerTick: 0
+  itemDescription: A blue gem thats fit for jewelery. Small and lacks value.

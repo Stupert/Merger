@@ -16,3 +16,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: dd6be9fbaed478e4380caac350c35abb, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 074117a03331a1d449182744ddae27ab, type: 2}
   itemCode: 0
+  currencyPerTick: 0
+  itemDescription: A simple, almost useless health potion.
