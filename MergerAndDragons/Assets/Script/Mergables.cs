@@ -33,19 +33,16 @@ public class Mergables_Editor : Editor
 
     public override void OnInspectorGUI()
     {
-        serializedObject.Update(); // Ensure up-to-date values
+        serializedObject.Update(); 
+        DrawDefaultInspector(); 
 
-        DrawDefaultInspector(); // Draw all default fields
-
-        // Custom toggle for generator
         EditorGUILayout.PropertyField(isGeneratorProp, new GUIContent("Is Generator"));
 
-        // If it is a generator, show the generative items list
         if (isGeneratorProp.boolValue)
         {
             EditorGUILayout.PropertyField(generativeItemsProp, new GUIContent("Generative Items"), true);
         }
 
-        serializedObject.ApplyModifiedProperties(); // Save changes
+        serializedObject.ApplyModifiedProperties();
     }
 }
