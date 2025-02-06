@@ -96,7 +96,6 @@ public class MouseBehaviour : MonoBehaviour
                 }
                 else //if you have dropped the item on a blank square, this will swap the cells merge items so the item dragged is now blank and the blank item is now the draged item
                 {
-                    //Cell temp = new Cell();
                     temp = droppedCell.mergeItem;
                     droppedCell.mergeItem = clickedCell.mergeItem;
                     clickedCell.mergeItem = temp;
@@ -122,23 +121,42 @@ public class MouseBehaviour : MonoBehaviour
 
     private void CheckForSpriteClick()
     {
-        // Convert mouse position to world position
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        // Check if the mouse position overlaps with the sprite's collider
         Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
+        if (hitCollider == null) return;
 
-        if (hitCollider != null && hitCollider.gameObject.GetComponent<Cell>().mergeItem != null)
+        Cell hitCell = hitCollider.GetComponent<Cell>();
+
+        if (hitCell.mergeItem != null)
         {
-            initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
-            clickedCell = hitCollider.gameObject.GetComponent<Cell>();
-            clickedCell.spriteRenderer.sortingOrder = 1;
-            clickedCell.DisableColliders();
-            hasClicked = true;
-            //isDragging = true;
+            if (CheckIfSpriteIsAlreadySelected(hitCell))//check to see if selected cell is the cell just clicked again
+            {
+                Debug.Log("selected cell has been reselected");
+                HandleCellClick();
+            }
+            else
+            {
+                initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
+                clickedCell = hitCollider.gameObject.GetComponent<Cell>();
+                clickedCell.spriteRenderer.sortingOrder = 1;
+                clickedCell.DisableColliders();
+                hasClicked = true;
+            }
         }
+        hitCell = null;
+    }
 
+    private bool CheckIfSpriteIsAlreadySelected(Cell cell)
+    {
+        if (selectedCell != null && cell.pos == selectedCell.pos)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void DragSprite()
@@ -151,7 +169,11 @@ public class MouseBehaviour : MonoBehaviour
 
     private void HandleCellClick()
     {
-        Debug.Log("Cell clicked without dragging: " + selectedCell.pos + ". Cell is: " + selectedCell.mergeItem.name);
+        if (selectedCell.mergeItem.isGenerator)
+        {
+            //do generator function
+        }
+
         uiManager.UpdateText(selectedCell.mergeItem.itemDescription);
     }
 
