@@ -49,7 +49,7 @@ public class MouseBehaviour : MonoBehaviour
             DragSprite();
         }
 
-        if(Input.GetMouseButtonUp(0) && !isDragging && hasClicked)
+        if (Input.GetMouseButtonUp(0) && !isDragging && hasClicked)
         {
             selectedCell = clickedCell;
             clickedCell.EnableColliders();
@@ -113,7 +113,7 @@ public class MouseBehaviour : MonoBehaviour
                 clickedCell.EnableColliders();
             }
 
-            clickedCell.spriteRenderer.sortingOrder = 0;
+            clickedCell.spriteRenderer.sortingOrder = 1;
             droppedCell = null;
             clickedCell = null;
         }
@@ -129,20 +129,14 @@ public class MouseBehaviour : MonoBehaviour
 
         if (hitCell.mergeItem != null)
         {
-            if (CheckIfSpriteIsAlreadySelected(hitCell))//check to see if selected cell is the cell just clicked again
-            {
-                Debug.Log("selected cell has been reselected");
-                HandleCellClick();
-            }
-            else
-            {
-                initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
-                clickedCell = hitCollider.gameObject.GetComponent<Cell>();
-                clickedCell.spriteRenderer.sortingOrder = 1;
-                clickedCell.DisableColliders();
-                hasClicked = true;
-            }
+
+            initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
+            clickedCell = hitCollider.gameObject.GetComponent<Cell>();
+            clickedCell.spriteRenderer.sortingOrder = 2;
+            clickedCell.DisableColliders();
+            hasClicked = true;
+
         }
         hitCell = null;
     }
@@ -171,7 +165,7 @@ public class MouseBehaviour : MonoBehaviour
     {
         if (selectedCell.mergeItem.isGenerator)
         {
-            //do generator function
+            selectedCell.Generate();
         }
 
         uiManager.UpdateText(selectedCell.mergeItem.itemDescription);

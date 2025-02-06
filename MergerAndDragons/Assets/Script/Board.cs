@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class Board : MonoBehaviour
 {
@@ -43,6 +45,10 @@ public class Board : MonoBehaviour
         {
             PopulateBoardAtRandom();
         }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            PopulateLowT();
+        }
     }
 
     public void initialiseBoard()
@@ -81,7 +87,7 @@ public class Board : MonoBehaviour
             if (!allCells[i].mergeItem)
             {
                 emptyCells.Add(allCells[i]);
-                Debug.Log(allCells[i].name);
+
             }
         }
         if (emptyCells.Count == 0) return;
@@ -100,7 +106,7 @@ public class Board : MonoBehaviour
             item = mergeablesMid[Random.Range(0, mergeablesMid.Count)];
             //spawn mid level item
         }
-        else 
+        else
         {
             item = mergeablesHigh[Random.Range(0, mergeablesHigh.Count)];
             //spawn high level item
@@ -113,8 +119,42 @@ public class Board : MonoBehaviour
         position = null;
     }
 
+    void PopulateLowT()
+    {
+        List<Cell> emptyCells = new List<Cell>();
+        Mergables item;
+        Cell position;
+
+        for (int i = 0; i < allCells.Count; i++)
+        {
+            if (!allCells[i].mergeItem)
+            {
+                emptyCells.Add(allCells[i]);
+            }
+        }
+        if (emptyCells.Count == 0) return;
+
+        item = mergeablesLow[0];
+
+        position = emptyCells[Random.Range(0, emptyCells.Count)];
+
+
+        SpawnItem(position, item);
+        emptyCells.Clear();
+        item = null;
+        position = null;
+    }
+
     public void SpawnItem(Cell pos, Mergables item)
     {
+        if (pos == null)return;
+
+        if (pos.mergeItem != null) //redundant
+        {
+            Debug.Log("Position not empty");
+            return;
+        }
+
         foreach (Cell cell in allCells)
         {
             if (cell.name == pos.name)
@@ -123,6 +163,27 @@ public class Board : MonoBehaviour
                 cell.UpdateCell();
             }
         }
+    }
+
+    public Cell GetClosestCell(Cell origin)
+    {
+        Cell closestCell = null;
+        float minDistance = float.MaxValue;
+
+        foreach (Cell cell in allCells)
+        {
+            if (cell.mergeItem == null)
+            {
+                float distance = Vector2.Distance(origin.pos, cell.pos);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestCell = cell;
+                }
+            }
+        }
+
+        return closestCell;
     }
 }
 

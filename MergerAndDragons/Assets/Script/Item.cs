@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Generators : MonoBehaviour
+public class Item : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,10 +14,5 @@ public class Generators : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Generate()
-    {
-
     }
 }

@@ -12,4 +12,13 @@ public class Mergables : ScriptableObject
     public float currencyPerTick;
     public string itemDescription = "This is a temporary descrition of this item";
     public bool isGenerator = false;
+    public float scaleFactor = 0.167f;
+    public Mergables[] generativeItems;
+
+    private void OnEnable()
+    {
+
+    }
+
 }
+
