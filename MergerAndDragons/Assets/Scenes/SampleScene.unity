@@ -170,6 +170,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
   - {fileID: 11400000, guid: a576d4aa00a58dd478c6de5319f648f6, type: 2}
   allCells: []
+  generators:
+  - {fileID: 11400000, guid: f3f83f6d694591346a50070c0c2bb87f, type: 2}
 --- !u!4 &280681555
 Transform:
   m_ObjectHideFlags: 0
@@ -267,7 +269,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
+  m_BackGroundColor: {r: 0.27450982, g: 0.2784314, b: 0.27450982, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -292,7 +294,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -707,8 +709,8 @@ Transform:
   m_GameObject: {fileID: 701018077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0083, y: 0, z: 0}
-  m_LocalScale: {x: 0.5193229, y: 0.52083325, z: 0.53154}
+  m_LocalPosition: {x: 0.0083, y: -0.58, z: 0}
+  m_LocalScale: {x: 1.0031691, y: 1.0060865, z: 1.0267686}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -772,8 +774,8 @@ Transform:
   m_GameObject: {fileID: 1682982408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3399963, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
+  m_LocalPosition: {x: -4.54, y: -5.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 280681555}

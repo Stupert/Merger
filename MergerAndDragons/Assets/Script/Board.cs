@@ -16,6 +16,9 @@ public class Board : MonoBehaviour
     public List<Mergables> mergeablesHigh = new List<Mergables>();
     public List<Cell> allCells = new List<Cell>();
 
+
+    public List<Mergables> generators = new List<Mergables>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -134,7 +137,7 @@ public class Board : MonoBehaviour
         }
         if (emptyCells.Count == 0) return;
 
-        item = mergeablesLow[0];
+        item = generators[0];
 
         position = emptyCells[Random.Range(0, emptyCells.Count)];
 

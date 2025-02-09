@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1748253319559661232}
   - component: {fileID: 7441033836005446322}
   - component: {fileID: 6009100018434068730}
+  - component: {fileID: 1235327665025868345}
   m_Layer: 0
   m_Name: CellPrefab
   m_TagString: Untagged
@@ -214,7 +215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.51, y: 0.51}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6009100018434068730
 MonoBehaviour:
@@ -232,3 +233,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5932356040601204210}
   pos: {x: 0, y: 0}
   collider: {fileID: 7441033836005446322}
+--- !u!111 &1235327665025868345
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098864534424212709}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 39e2bd57b3c147a4a8daf11d7f36b3d1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 39e2bd57b3c147a4a8daf11d7f36b3d1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

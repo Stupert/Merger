@@ -17,9 +17,9 @@ MonoBehaviour:
   mergeOutcome: {fileID: 11400000, guid: 661d19e3a3764e646abbef44c06b5029, type: 2}
   itemCode: 0
   currencyPerTick: 0
-  itemDescription: An unimpressive blue gem. cracked and rough to the touch.
+  itemDescription: 
+  scaleFactor: 0.18
   isGenerator: 1
-  scaleFactor: 0.091
   generativeItems:
   - {fileID: 11400000, guid: f00c5709b6107ed40a8cb9d7f6ba7ab6, type: 2}
   - {fileID: 11400000, guid: 074117a03331a1d449182744ddae27ab, type: 2}

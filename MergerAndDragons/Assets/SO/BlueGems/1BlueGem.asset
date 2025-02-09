@@ -18,3 +18,6 @@ MonoBehaviour:
   itemCode: 0
   currencyPerTick: 0
   itemDescription: A blue gem. Not good to look at and cracked. Flawed and unimpressive.
+  scaleFactor: 0.334
+  isGenerator: 0
+  generativeItems: []

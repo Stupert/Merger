@@ -19,3 +19,6 @@ MonoBehaviour:
   currencyPerTick: 0
   itemDescription: A gem of immaculate quality. Jewelers, thieves and collectors
     best friend.
+  scaleFactor: 0.334
+  isGenerator: 0
+  generativeItems: []

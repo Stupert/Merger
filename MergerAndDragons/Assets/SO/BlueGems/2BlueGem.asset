@@ -18,3 +18,6 @@ MonoBehaviour:
   itemCode: 0
   currencyPerTick: 0
   itemDescription: A blue gem thats fit for jewelery. Small and lacks value.
+  scaleFactor: 0.334
+  isGenerator: 0
+  generativeItems: []

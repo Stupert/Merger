@@ -18,3 +18,6 @@ MonoBehaviour:
   itemCode: 0
   currencyPerTick: 0
   itemDescription: A larger blue gem. Beautiful and shiny.
+  scaleFactor: 0.334
+  isGenerator: 0
+  generativeItems: []

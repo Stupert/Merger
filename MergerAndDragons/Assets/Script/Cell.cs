@@ -59,7 +59,17 @@ public class Cell : MonoBehaviour
     {
         if (mergeItem.isGenerator)
         {
-            board.SpawnItem(board.GetClosestCell(this), mergeItem.generativeItems[Random.Range(0, mergeItem.generativeItems.Count())]);
+            Cell designatedCell = board.GetClosestCell(this);
+            board.SpawnItem(designatedCell, mergeItem.generativeItems[Random.Range(0, mergeItem.generativeItems.Count())]);
+            designatedCell.SpawnAnimation();
+            designatedCell = null;
         }
     }
+
+    public void SpawnAnimation()
+    {
+        //Debug.Log("Cell: " + pos + " animating");
+        gameObject.GetComponent<Animation>().Play("CellSpin");
+    }
+
 }
