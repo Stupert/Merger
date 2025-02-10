@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0459222c634acd4fbfec3bae1652e73, type: 3}
   m_Name: 0BlueGem
   m_EditorClassIdentifier: 
+  ID: 1
   name: 
   image: {fileID: 21300000, guid: f493505b207edc647a9105c8bba7cbee, type: 3}
   mergeOutcome: {fileID: 11400000, guid: b20f3ef6f40333a4dbc345de7f86b6d5, type: 2}
-  itemCode: 0
   currencyPerTick: 0
   itemDescription: An unimpressive blue gem. cracked and rough to the touch.
   scaleFactor: 0.334
