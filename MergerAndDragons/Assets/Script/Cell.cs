@@ -11,17 +11,20 @@ public class Cell : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Vector2 pos;
     public BoxCollider2D collider;
+    public ParticleSystem particleSystem;
     Board board;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateCell();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         board  = GameObject.Find("BoardManager").GetComponent<Board>();
     }
 
@@ -52,6 +55,8 @@ public class Cell : MonoBehaviour
     public void Merge()
     {
         mergeItem = mergeItem.mergeOutcome;
+        particleSystem.Play();
+        gameObject.GetComponent<Animator>().SetTrigger("Merged");
         UpdateCell();
     }
 
@@ -66,10 +71,16 @@ public class Cell : MonoBehaviour
         }
     }
 
+    public void SelectAnimation()
+    {
+        if (mergeItem.isGenerator) return;
+        gameObject.GetComponent<Animator>().SetTrigger("Selected");
+    }
+
     public void SpawnAnimation()
     {
         //Debug.Log("Cell: " + pos + " animating");
-        gameObject.GetComponent<Animation>().Play("CellSpin");
+        gameObject.GetComponent<Animator>().SetTrigger("Spawned");
     }
 
 }

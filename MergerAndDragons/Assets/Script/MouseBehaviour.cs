@@ -167,7 +167,7 @@ public class MouseBehaviour : MonoBehaviour
         {
             selectedCell.Generate();
         }
-
+        selectedCell.SelectAnimation();
         uiManager.UpdateText(selectedCell.mergeItem.itemDescription);
     }
 
