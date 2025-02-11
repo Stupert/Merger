@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3BlueGem
   m_EditorClassIdentifier: 
   ID: 4
-  name: 
+  name: BlueGem3
   image: {fileID: 21300000, guid: 9608e857dd0aece4c8cab4983a63eafb, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 4adde9f092948744a9080befd25a4190, type: 2}
   currencyPerTick: 0

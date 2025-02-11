@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2RedGem
   m_EditorClassIdentifier: 
   ID: 15
-  name: 
+  name: Redgem2
   image: {fileID: 21300000, guid: 168401d74c546c249a54dcd86d5fd57d, type: 3}
   mergeOutcome: {fileID: 11400000, guid: c63ba30ccc7ddd64daf51c3e08eeaf15, type: 2}
   currencyPerTick: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3RedGem
   m_EditorClassIdentifier: 
   ID: 16
-  name: 
+  name: Redgem3
   image: {fileID: 21300000, guid: 306aeae5993840a4ea946989490f8363, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 93e0c15a09494404ab6cf3bebb9ec473, type: 2}
   currencyPerTick: 0
