@@ -65,6 +65,7 @@ public class Cell : MonoBehaviour
         if (mergeItem.isGenerator)
         {
             Cell designatedCell = board.GetClosestCell(this);
+            if (designatedCell == null) return;
             board.SpawnItem(designatedCell, mergeItem.generativeItems[Random.Range(0, mergeItem.generativeItems.Count())]);
             designatedCell.SpawnAnimation();
             designatedCell = null;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System.Linq;
 
 public class MergablesList : EditorWindow
 {
@@ -33,6 +34,7 @@ public class MergablesList : EditorWindow
                 items.Add(item);
             }
         }
+        items = items.OrderBy(item => item.ID).ToList();
     }
 
     private void OnGUI()

@@ -82,8 +82,6 @@ public class MouseBehaviour : MonoBehaviour
                         }
                         else //item list has no more merge outcomes
                         {
-                            //TODO
-                            //Animation for end of tree merging, a wiggle or vibrate from both items
                             clickedCell.transform.localPosition = clickedCell.pos;
                             clickedCell.EnableColliders();
                         }
@@ -131,7 +129,7 @@ public class MouseBehaviour : MonoBehaviour
         {
 
             initialMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
+            //Debug.Log("Clicked " + hitCollider.gameObject.GetComponent<Cell>().pos);
             clickedCell = hitCollider.gameObject.GetComponent<Cell>();
             clickedCell.spriteRenderer.sortingOrder = 2;
             clickedCell.DisableColliders();
@@ -155,9 +153,7 @@ public class MouseBehaviour : MonoBehaviour
 
     private void DragSprite()
     {
-        // Update sprite position to follow the mouse
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        //clickedCell.transform.position = new Vector2(mousePosition.x, mousePosition.y);
         clickedCell.transform.position = Vector3.Lerp(clickedCell.transform.position, mousePosition, Time.deltaTime * lerpSpeed);
     }
 
