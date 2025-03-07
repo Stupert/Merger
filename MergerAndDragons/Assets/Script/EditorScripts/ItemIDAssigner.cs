@@ -6,7 +6,7 @@ using System.Linq;
 
 public class ItemIDAssigner : EditorWindow
 {
-    
+
     [MenuItem("Tools/Assign Item IDs")]
     public static void AssignIDs()
     {
@@ -19,9 +19,9 @@ public class ItemIDAssigner : EditorWindow
             string path = AssetDatabase.GUIDToAssetPath(guid);
             Mergables item = AssetDatabase.LoadAssetAtPath<Mergables>(path);
 
-            if (item != null && item.ID > maxID)
+            if (item != null && int.TryParse(item.UID, out int parsedID) && parsedID > maxID)
             {
-                maxID = item.ID;
+                maxID = parsedID;
             }
         }
 
@@ -33,9 +33,10 @@ public class ItemIDAssigner : EditorWindow
             string path = AssetDatabase.GUIDToAssetPath(guid);
             Mergables item = AssetDatabase.LoadAssetAtPath<Mergables>(path);
 
-            if (item != null && item.ID == 0) // Only assign if ID is not set
+            if (item != null && item.UID == "000") // Only assign if UID is unset
             {
-                item.ID = newID++;
+                item.UID = newID.ToString("D3"); // Convert ID to string with leading zeros
+                newID++;
                 EditorUtility.SetDirty(item);
             }
         }
@@ -44,5 +45,4 @@ public class ItemIDAssigner : EditorWindow
         AssetDatabase.Refresh();
         Debug.Log("New Item IDs assigned successfully!");
     }
-    
 }

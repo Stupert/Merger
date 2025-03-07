@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Mergables", order = 1)]
 public class Mergables : ScriptableObject
 {
-    public int ID = 0;
+    public int ID = 000;
+    public string UID = "000";
     public string name;
     public Sprite image;
     public Mergables mergeOutcome;

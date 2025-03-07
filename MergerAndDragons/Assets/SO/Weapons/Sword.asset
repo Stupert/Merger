@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   ID: 21
+  UID: 021
   name: Sword
   image: {fileID: 21300000, guid: 4877d3ef34b4b1a44a18fe305545b364, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 5b32ad1954c2eb14c913c0550f7a105f, type: 2}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BattleAxe
   m_EditorClassIdentifier: 
   ID: 18
+  UID: 018
   name: BattleAxe
   image: {fileID: 21300000, guid: 50377a983d3bcba4cbefcb4b090ba076, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 5ff3d7b430396394d8426d6a7f524f37, type: 2}

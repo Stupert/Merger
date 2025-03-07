@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 3HealthPotion
   m_EditorClassIdentifier: 
   ID: 11
+  UID: 011
   name: 3HealthPotion
   image: {fileID: 21300000, guid: 4b2d622a762f4ed4a87b0b9767d22eab, type: 3}
   mergeOutcome: {fileID: 11400000, guid: acd2e32a342d3f247941c60c322aa304, type: 2}

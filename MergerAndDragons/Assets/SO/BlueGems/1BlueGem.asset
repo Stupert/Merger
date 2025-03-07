@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1BlueGem
   m_EditorClassIdentifier: 
   ID: 2
+  UID: 002
   name: BlueGem1
   image: {fileID: 21300000, guid: e41a4029015c83a448dded1d2f9dfafc, type: 3}
   mergeOutcome: {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nullified
   m_EditorClassIdentifier: 
   ID: 19
+  UID: 019
   name: Nullified
   image: {fileID: 21300000, guid: 5242f33a5adaed84989c2becce280ea1, type: 3}
   mergeOutcome: {fileID: 0}

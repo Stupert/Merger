@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Oven
   m_EditorClassIdentifier: 
   ID: 7
+  UID: 007
   name: Oven
   image: {fileID: 21300000, guid: 9e193e169a968474db8f491d4db59b41, type: 3}
   mergeOutcome: {fileID: 11400000, guid: 661d19e3a3764e646abbef44c06b5029, type: 2}
