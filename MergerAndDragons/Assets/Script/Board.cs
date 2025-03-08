@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.Progress;
@@ -11,10 +12,14 @@ public class Board : MonoBehaviour
     public Vector2 boardSize = new Vector2(5, 40);
     public GameObject tilePrefab;
 
+    public List<Mergables> mergeablesAll = new List<Mergables>();
+
     public List<Mergables> mergeablesLow = new List<Mergables>();
     public List<Mergables> mergeablesMid = new List<Mergables>();
     public List<Mergables> mergeablesHigh = new List<Mergables>();
     public List<Cell> allCells = new List<Cell>();
+
+    public List<string> UIDData = new List<string>();
 
 
     public List<Mergables> generators = new List<Mergables>();
@@ -43,6 +48,12 @@ public class Board : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            UpdateCellUIDData();
+        }
+
 
         if (Input.GetKeyUp(KeyCode.R))
         {
@@ -187,6 +198,53 @@ public class Board : MonoBehaviour
         }
 
         return closestCell;
+    }
+
+    public void UpdateCellUIDData()
+    {
+        for (int i = 0; i < allCells.Count; i++)
+        {
+            if (allCells[i].mergeItem)
+            {
+                UIDData.Add(allCells[i].mergeItem.UID);
+                Debug.Log(UIDData[i]);
+            }
+            else
+            {
+                UIDData.Add("000");
+                Debug.Log("Empty");
+            }
+        }
+    }
+
+    public void LoadData(PlayerData data) //this works, never touch it again.
+    {
+        ClearBoard();
+        for (int i = 0;i < data.cellData.Count;i++) 
+        {
+            if (data.cellData[i] != "000")
+            {
+                Mergables item;
+                item = mergeablesAll[20];
+                for (int j = 0; j < mergeablesAll.Count ; j++)
+                {
+                    if (data.cellData[i] == mergeablesAll[j].UID)
+                    {
+                        item = mergeablesAll[j];
+                    }
+                }
+                SpawnItem(allCells[i], item);
+            }
+        }
+    }
+
+    public void ClearBoard()
+    {
+        for(int i = 0; i < allCells.Count ; i++)
+        {
+            allCells[i].mergeItem = null;
+            allCells[i].UpdateCell();
+        }
     }
 }
 

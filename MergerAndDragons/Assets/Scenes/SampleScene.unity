@@ -155,6 +155,28 @@ MonoBehaviour:
   boardParent: {fileID: 1682982408}
   boardSize: {x: 10, y: 12}
   tilePrefab: {fileID: 6098864534424212709, guid: 3e11ce3b9f568e24ca2f55e662cdf25c, type: 3}
+  mergeablesAll:
+  - {fileID: 11400000, guid: 6488e60bfa379734db985b8ab4a746cc, type: 2}
+  - {fileID: 11400000, guid: b20f3ef6f40333a4dbc345de7f86b6d5, type: 2}
+  - {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
+  - {fileID: 11400000, guid: 52c6e803c28377e48b7f361225467a00, type: 2}
+  - {fileID: 11400000, guid: 4adde9f092948744a9080befd25a4190, type: 2}
+  - {fileID: 11400000, guid: 1eb39cd71c6ee6c498cd535b24f0f163, type: 2}
+  - {fileID: 11400000, guid: f3f83f6d694591346a50070c0c2bb87f, type: 2}
+  - {fileID: 11400000, guid: f00c5709b6107ed40a8cb9d7f6ba7ab6, type: 2}
+  - {fileID: 11400000, guid: 074117a03331a1d449182744ddae27ab, type: 2}
+  - {fileID: 11400000, guid: 519873c88849cef4d8881b58426be9c1, type: 2}
+  - {fileID: 11400000, guid: 276b8e4a414ea5e45bbdc3f36e64677c, type: 2}
+  - {fileID: 11400000, guid: acd2e32a342d3f247941c60c322aa304, type: 2}
+  - {fileID: 11400000, guid: 6b99535dd51aa8e408c3aeed6cb0039f, type: 2}
+  - {fileID: 11400000, guid: 90104b04dbca3a946883e2c40892b6de, type: 2}
+  - {fileID: 11400000, guid: a576d4aa00a58dd478c6de5319f648f6, type: 2}
+  - {fileID: 11400000, guid: c63ba30ccc7ddd64daf51c3e08eeaf15, type: 2}
+  - {fileID: 11400000, guid: 93e0c15a09494404ab6cf3bebb9ec473, type: 2}
+  - {fileID: 11400000, guid: 5b32ad1954c2eb14c913c0550f7a105f, type: 2}
+  - {fileID: 11400000, guid: d89af975575a7a74ebc560cb1848fc6e, type: 2}
+  - {fileID: 11400000, guid: 5ff3d7b430396394d8426d6a7f524f37, type: 2}
+  - {fileID: 11400000, guid: 77dd8f3e22252cd4e98a1c26ba1cff1b, type: 2}
   mergeablesLow:
   - {fileID: 11400000, guid: f00c5709b6107ed40a8cb9d7f6ba7ab6, type: 2}
   - {fileID: 11400000, guid: 77dd8f3e22252cd4e98a1c26ba1cff1b, type: 2}
@@ -170,6 +192,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2b86cf389742514fa0909c62b523468, type: 2}
   - {fileID: 11400000, guid: a576d4aa00a58dd478c6de5319f648f6, type: 2}
   allCells: []
+  UIDData: []
   generators:
   - {fileID: 11400000, guid: f3f83f6d694591346a50070c0c2bb87f, type: 2}
 --- !u!4 &280681555
@@ -747,8 +770,54 @@ Transform:
   - {fileID: 280681555}
   - {fileID: 540242754}
   - {fileID: 1777508054}
+  - {fileID: 1245276367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1245276366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245276367}
+  - component: {fileID: 1245276368}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245276367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245276366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 820788174}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1245276368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245276366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb21154fd3dc0e48a4b27610275f26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 280681554}
 --- !u!1 &1682982408
 GameObject:
   m_ObjectHideFlags: 0
