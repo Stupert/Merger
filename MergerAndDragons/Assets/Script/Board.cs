@@ -165,7 +165,7 @@ public class Board : MonoBehaviour
 
         if (pos.mergeItem != null) //redundant
         {
-            Debug.Log("Position not empty");
+            //Debug.Log("Position not empty");
             return;
         }
 
@@ -202,17 +202,18 @@ public class Board : MonoBehaviour
 
     public void UpdateCellUIDData()
     {
+        UIDData.Clear(); //clear the data so that the following doesnt add to the list of UIDData
         for (int i = 0; i < allCells.Count; i++)
         {
             if (allCells[i].mergeItem)
             {
                 UIDData.Add(allCells[i].mergeItem.UID);
-                Debug.Log(UIDData[i]);
+                //Debug.Log(UIDData[i]);
             }
             else
             {
                 UIDData.Add("000");
-                Debug.Log("Empty");
+                //Debug.Log("Empty");
             }
         }
     }

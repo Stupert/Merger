@@ -27,7 +27,7 @@ public class JsonHandler : MonoBehaviour
         board.UpdateCellUIDData();
         string json = JsonUtility.ToJson(playerData);
         File.WriteAllText(filePath, json);
-        Debug.Log("Player data saved to: " + filePath);
+        Debug.Log("Player data saved");
     }
 
     // Load data from a JSON file
@@ -35,6 +35,7 @@ public class JsonHandler : MonoBehaviour
     {
         if (File.Exists(filePath))
         {
+            Debug.Log("Game Loading");
             string json = File.ReadAllText(filePath);
             PlayerData loadedPlayer = JsonUtility.FromJson<PlayerData>(json);
             board.LoadData(loadedPlayer);
