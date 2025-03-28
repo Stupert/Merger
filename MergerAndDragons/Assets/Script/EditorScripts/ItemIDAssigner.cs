@@ -27,8 +27,7 @@ public class ItemIDAssigner : EditorWindow
 
         int newID = maxID + 1;
 
-        // Assign new IDs only to items without one
-        foreach (string guid in guids)
+        foreach (string guid in guids)// Assign new IDs only to items without one
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
             Mergables item = AssetDatabase.LoadAssetAtPath<Mergables>(path);

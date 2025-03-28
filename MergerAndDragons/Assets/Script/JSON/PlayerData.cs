@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerData
 {
     public List<string> cellData = new List<string>();
+    public double epochTime;
 
-    public PlayerData(List<string> playerCells)
+    public PlayerData(List<string> playerCells, double time)
     {
         cellData = playerCells;
+        epochTime = time;
     }
 }

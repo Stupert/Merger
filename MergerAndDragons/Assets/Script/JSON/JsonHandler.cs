@@ -8,6 +8,7 @@ public class JsonHandler : MonoBehaviour
     // The file path where the JSON file will be stored.
     private string filePath;
     public Board board;
+    public TimeController timeController;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class JsonHandler : MonoBehaviour
         filePath = Application.persistentDataPath + "/playerData.json";
 
         // Example of creating a new player and saving it to JSON
-        PlayerData player = new PlayerData(board.UIDData);
+        PlayerData player = new PlayerData(board.UIDData, timeController.GetTime());
 
         // Optionally, load the data from the JSON file
         
@@ -38,7 +39,6 @@ public class JsonHandler : MonoBehaviour
             Debug.Log("Game Loading");
             string json = File.ReadAllText(filePath);
             PlayerData loadedPlayer = JsonUtility.FromJson<PlayerData>(json);
-            board.LoadData(loadedPlayer);
             return loadedPlayer;
         }
         else
@@ -52,19 +52,23 @@ public class JsonHandler : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B)) //load 
         {
             //LoadFromJSON();
             PlayerData loadedPlayer = LoadFromJSON();
             if (loadedPlayer != null)
             {
+
+                board.LoadData(loadedPlayer); //load board
+                timeController.UpdateTime(loadedPlayer.epochTime); //load time
+
                 //Debug.Log("Loaded Player: " + loadedPlayer.playerName + " Score: " + loadedPlayer.playerScore);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V)) //save
         {
-            PlayerData player = new PlayerData(board.UIDData);
+            PlayerData player = new PlayerData(board.UIDData, timeController.GetTime());
             SaveToJSON(player);
         }
         
