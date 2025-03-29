@@ -6,19 +6,20 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-
+    EnergyManager energyManager;
     public Mergables mergeItem;
     public SpriteRenderer spriteRenderer;
     public Vector2 pos;
     public BoxCollider2D collider;
     public ParticleSystem particleSystem;
     Board board;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateCell();
-
+        energyManager = GameObject.Find("EnergyManager").GetComponent<EnergyManager>();
     }
 
     // Update is called once per frame
@@ -64,6 +65,9 @@ public class Cell : MonoBehaviour
     {
         if (mergeItem.isGenerator)
         {
+            if (!energyManager.EnergyCheck(mergeItem.generatorCost)) return;
+
+            energyManager.DepleteEnergy(mergeItem.generatorCost);
             Cell designatedCell = board.GetClosestCell(this);
             if (designatedCell == null) return;
             board.SpawnItem(designatedCell, mergeItem.generativeItems[Random.Range(0, mergeItem.generativeItems.Count())]);

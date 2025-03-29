@@ -16,6 +16,7 @@ public class Mergables : ScriptableObject
     public float scaleFactor = 0.334f;
     [HideInInspector] public bool isGenerator = false;
     [HideInInspector] public Mergables[] generativeItems;
+    [HideInInspector] public int generatorCost;
 
 }
 
@@ -25,11 +26,13 @@ public class Mergables_Editor : Editor
 {
     SerializedProperty isGeneratorProp;
     SerializedProperty generativeItemsProp;
+    SerializedProperty generatorIntProp;
 
     private void OnEnable()
     {
         isGeneratorProp = serializedObject.FindProperty("isGenerator");
         generativeItemsProp = serializedObject.FindProperty("generativeItems");
+        generatorIntProp = serializedObject.FindProperty("generatorCost");
     }
 
     public override void OnInspectorGUI()
@@ -41,7 +44,9 @@ public class Mergables_Editor : Editor
 
         if (isGeneratorProp.boolValue)
         {
+            EditorGUILayout.PropertyField(generatorIntProp, new GUIContent("Generator Int Value"));
             EditorGUILayout.PropertyField(generativeItemsProp, new GUIContent("Generative Items"), true);
+
         }
 
         serializedObject.ApplyModifiedProperties();

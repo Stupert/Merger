@@ -26,3 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 074117a03331a1d449182744ddae27ab, type: 2}
   - {fileID: 11400000, guid: 6b99535dd51aa8e408c3aeed6cb0039f, type: 2}
   - {fileID: 11400000, guid: 90104b04dbca3a946883e2c40892b6de, type: 2}
+  generatorCost: 15
