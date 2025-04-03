@@ -21,8 +21,8 @@ public class AdManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        rewardAds.LoadRewardAd();
     }
+
 
     private void Start()
     {
@@ -33,6 +33,7 @@ public class AdManager : MonoBehaviour
     {
         if (!adPanel.activeInHierarchy)
         {
+            rewardAds.LoadAd();
             adPanel.SetActive(true);
         }
         else
@@ -51,6 +52,12 @@ public class AdManager : MonoBehaviour
         {
             Debug.LogWarning("Ad panel already deactive");
         }
+    }
+
+    public void PlayAd()
+    {
+        instance.PlayAd();
+        CloseAdPanel();
     }
     
 }

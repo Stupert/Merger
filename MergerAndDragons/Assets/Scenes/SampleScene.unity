@@ -483,8 +483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a73edafc5ea7c14897d6c8104df558f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  androidAdUnitID: Rewarded_Android
-  iosAdUnitID: Rewarded_iOS
+  _showAdButton: {fileID: 824457134}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
+  _energyManager: {fileID: 1513176204}
 --- !u!114 &284815823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,9 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2793bbfbf104649ac7e706b53c4577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  androidGameId: 5827387
-  iosGameId: 5827386
-  isTesting: 1
+  _androidGameId: 5827387
+  _iOSGameId: 5827386
+  _testMode: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

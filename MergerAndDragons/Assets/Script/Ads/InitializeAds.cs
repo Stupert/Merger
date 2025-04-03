@@ -5,46 +5,40 @@ using UnityEngine.Advertisements;
 
 public class InitializeAds : MonoBehaviour, IUnityAdsInitializationListener
 {
-    [SerializeField] private string androidGameId;
-    [SerializeField] private string iosGameId;
-    [SerializeField] private bool isTesting;
+    [SerializeField] string _androidGameId;
+    [SerializeField] string _iOSGameId;
+    [SerializeField] bool _testMode = true;
+    private string _gameId;
 
-    private string gameId;
+    void Awake()
+    {
+        InitializeAd();
+    }
+
+    public void InitializeAd()
+    {
+#if UNITY_IOS
+            _gameId = _iOSGameId;
+#elif UNITY_ANDROID
+        _gameId = _androidGameId;
+#elif UNITY_EDITOR
+            _gameId = _androidGameId; //Only for testing the functionality in the Editor
+#endif
+        if (!Advertisement.isInitialized && Advertisement.isSupported)
+        {
+            Advertisement.Initialize(_gameId, _testMode, this);
+        }
+    }
+
 
     public void OnInitializationComplete()
     {
-        Debug.Log("Ads initialized");
+        Debug.Log("Unity Ads initialization complete.");
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
-        Debug.Log("Ads failed");
-    }
-
-    private void Awake()
-    {
-#if UNITY_IOS
-gameId = iosgameId;
-#elif UNITY_ANDROID
-gameId = androidGameId;
-#elif UNITY_EDITOR
-gameId = androidGameId;
-#endif
-        if(!Advertisement.isInitialized && Advertisement.isSupported)
-        {
-            Advertisement.Initialize(gameId, isTesting, this);
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 }
+
