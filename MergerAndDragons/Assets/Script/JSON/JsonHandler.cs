@@ -9,6 +9,7 @@ public class JsonHandler : MonoBehaviour
     private string filePath;
     public Board board;
     public TimeController timeController;
+    public EnergyManager energyManager;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class JsonHandler : MonoBehaviour
         filePath = Application.persistentDataPath + "/playerData.json";
 
         // Example of creating a new player and saving it to JSON
-        PlayerData player = new PlayerData(board.UIDData, timeController.GetTime());
+        PlayerData player = new PlayerData(board.UIDData, timeController.GetTime(), energyManager.energy);
 
         // Optionally, load the data from the JSON file
         
@@ -58,17 +59,14 @@ public class JsonHandler : MonoBehaviour
             PlayerData loadedPlayer = LoadFromJSON();
             if (loadedPlayer != null)
             {
-
                 board.LoadData(loadedPlayer); //load board
-                timeController.UpdateTime(loadedPlayer.epochTime); //load time
-
-                //Debug.Log("Loaded Player: " + loadedPlayer.playerName + " Score: " + loadedPlayer.playerScore);
+                timeController.UpdateTime(loadedPlayer.epochTime, loadedPlayer.energy); //load time
             }
         }
 
         if (Input.GetKeyDown(KeyCode.V)) //save
         {
-            PlayerData player = new PlayerData(board.UIDData, timeController.GetTime());
+            PlayerData player = new PlayerData(board.UIDData, timeController.GetTime(), energyManager.energy);
             SaveToJSON(player);
         }
         

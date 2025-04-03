@@ -11,6 +11,7 @@ public class TimeController : MonoBehaviour
 
     string dateTime;
     double epoch;
+    public EnergyManager energyManager;
 
     [SerializeField]TMP_Text timeUI;
 
@@ -34,10 +35,11 @@ public class TimeController : MonoBehaviour
         return epoch;
     }
 
-    public void UpdateTime(double savedTime)
+    public void UpdateTime(double savedTime, int savedEnergy)
     {
         double diff = GetTime() - savedTime;
         int timeTemp = (int)diff;
         timeUI.text = timeTemp.ToString();
+        energyManager.OnLoad(timeTemp,savedEnergy);
     }
 }

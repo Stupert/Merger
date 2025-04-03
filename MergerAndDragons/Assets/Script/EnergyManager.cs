@@ -30,7 +30,7 @@ public class EnergyManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        energyUIBar.fillAmount = (float)energy/maxEnergy;
+        energyUIBar.fillAmount = (float)energy / maxEnergy;
     }
 
     public void DepleteEnergy(int val)
@@ -60,9 +60,9 @@ public class EnergyManager : MonoBehaviour
         if (val > energy)
         {
             return false;
-        } 
-        else 
-        { 
+        }
+        else
+        {
             return true;
         }
     }
@@ -77,5 +77,18 @@ public class EnergyManager : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
+    }
+
+    public void OnLoad(double timeOffline, int savedEnergy)
+    {
+        energy = savedEnergy;
+        int energyIncrease;
+        energyIncrease = (int)energyGenRate * (int)timeOffline;
+        IncreaseEnergy(energyIncrease);
+    }
+
+    public void MaxEnergy()
+    {
+        energy = maxEnergy;
     }
 }
