@@ -89,6 +89,6 @@ public class EnergyManager : MonoBehaviour
 
     public void MaxEnergy()
     {
-        energy = maxEnergy;
+        IncreaseEnergy(maxEnergy);
     }
 }
