@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
@@ -10,6 +12,11 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
+
+
+    public int adBoostsLeft = 3;
+    public int totalAdBoost = 3;
+    [SerializeField] TMP_Text adBoostText;
 
     [SerializeField] EnergyManager _energyManager;
 
@@ -26,6 +33,13 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
         _showAdButton.interactable = false;
     }
 
+    public void UpdateUI()
+    {
+        adBoostsLeft--;
+        adBoostText.text = adBoostsLeft.ToString();
+    }
+
+
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd()
     {
@@ -39,7 +53,7 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     {
         Debug.Log("Ad Loaded: " + adUnitId);
 
-        if (adUnitId.Equals(_adUnitId))
+        if (adUnitId.Equals(_adUnitId) && adBoostsLeft > 0)
         {
             // Configure the button to call the ShowAd() method when clicked:
             _showAdButton.onClick.AddListener(ShowAd);

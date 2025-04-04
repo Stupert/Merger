@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +12,9 @@ public class AdManager : MonoBehaviour
     public static AdManager instance { get; private set; }
 
     [SerializeField] GameObject adPanel;
-
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
@@ -54,10 +54,12 @@ public class AdManager : MonoBehaviour
         }
     }
 
+
     public void PlayAd()
     {
-        instance.PlayAd();
+
         CloseAdPanel();
+        instance.PlayAd();
     }
-    
+
 }
