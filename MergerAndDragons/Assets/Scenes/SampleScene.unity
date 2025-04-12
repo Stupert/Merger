@@ -490,6 +490,7 @@ MonoBehaviour:
   adBoostsLeft: 3
   totalAdBoost: 3
   adBoostText: {fileID: 1236372786}
+  UIpanelStateMachine: {fileID: 1914769626}
   _energyManager: {fileID: 1513176204}
 --- !u!114 &284815823
 MonoBehaviour:
@@ -859,14 +860,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284815821}
-        m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
-        m_MethodName: OpenAdPanel
-        m_Mode: 1
+      - m_Target: {fileID: 1914769626}
+        m_TargetAssemblyTypeName: UIPanelStateMachine, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -938,6 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1789854d34b4ff4fafe4284d90cbfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIPanelStateMachine: {fileID: 1914769626}
   isDragging: 0
   clickedCell: {fileID: 0}
   droppedCell: {fileID: 0}
@@ -1339,6 +1341,7 @@ Transform:
   - {fileID: 2110467397}
   - {fileID: 1513176203}
   - {fileID: 284815820}
+  - {fileID: 1914769625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824457132
@@ -2021,10 +2024,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284815821}
-        m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
-        m_MethodName: CloseAdPanel
-        m_Mode: 1
+      - m_Target: {fileID: 1914769626}
+        m_TargetAssemblyTypeName: UIPanelStateMachine, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2335,10 +2338,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284815821}
-        m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
-        m_MethodName: CloseAdPanel
-        m_Mode: 1
+      - m_Target: {fileID: 1914769626}
+        m_TargetAssemblyTypeName: UIPanelStateMachine, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2740,6 +2743,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909306437}
   m_CullTransparentMesh: 1
+--- !u!1 &1914769624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914769625}
+  - component: {fileID: 1914769626}
+  m_Layer: 0
+  m_Name: UIStateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914769625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914769624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 820788174}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914769626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914769624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9851797e2fc60864bb69e475f0a569be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  adUIElement: {fileID: 1348184329}
+  rewardAds: {fileID: 284815822}
 --- !u!1 &1953278893
 GameObject:
   m_ObjectHideFlags: 0

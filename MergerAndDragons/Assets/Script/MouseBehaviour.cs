@@ -5,6 +5,8 @@ using static UnityEditor.PlayerSettings;
 
 public class MouseBehaviour : MonoBehaviour
 {
+    [SerializeField] UIPanelStateMachine UIPanelStateMachine;
+
     private Camera mainCamera;
     [SerializeField]
     private bool isDragging = false;
@@ -32,6 +34,8 @@ public class MouseBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (UIPanelStateMachine.state != UIPanelStateMachine.UIState.Gameplay) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             uiManager.ClearText();

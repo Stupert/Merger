@@ -17,7 +17,7 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     public int adBoostsLeft = 3;
     public int totalAdBoost = 3;
     [SerializeField] TMP_Text adBoostText;
-
+    [SerializeField] UIPanelStateMachine UIpanelStateMachine;
     [SerializeField] EnergyManager _energyManager;
 
     void Awake()
@@ -78,7 +78,7 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             _energyManager.MaxEnergy();
-            LoadAd();
+            UIpanelStateMachine.ChangeState(UIPanelStateMachine.UIState.Gameplay);
             // Grant a reward.
         }
     }

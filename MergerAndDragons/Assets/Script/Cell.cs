@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
+    //[SerializeField] AdManager adManager;
+    UIPanelStateMachine UIPanelStateMachine;
     EnergyManager energyManager;
     public Mergables mergeItem;
     public SpriteRenderer spriteRenderer;
@@ -20,13 +22,15 @@ public class Cell : MonoBehaviour
     {
         UpdateCell();
         energyManager = GameObject.Find("EnergyManager").GetComponent<EnergyManager>();
+        UIPanelStateMachine = GameObject.Find("UIStateManager").GetComponent<UIPanelStateMachine>();
+        board = GameObject.Find("BoardManager").GetComponent<Board>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        board  = GameObject.Find("BoardManager").GetComponent<Board>();
+        
     }
 
     public void UpdateCell()
@@ -65,8 +69,12 @@ public class Cell : MonoBehaviour
     {
         if (mergeItem.isGenerator)
         {
-            if (!energyManager.EnergyCheck(mergeItem.generatorCost)) return;
-
+            if (!energyManager.EnergyCheck(mergeItem.generatorCost))
+            {
+                UIPanelStateMachine.ChangeState(UIPanelStateMachine.UIState.Ad);
+                //adManager.OpenAdPanel();
+                return;
+            }
             energyManager.DepleteEnergy(mergeItem.generatorCost);
             Cell designatedCell = board.GetClosestCell(this);
             if (designatedCell == null) return;

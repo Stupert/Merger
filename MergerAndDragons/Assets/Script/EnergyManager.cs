@@ -35,8 +35,11 @@ public class EnergyManager : MonoBehaviour
 
     public void DepleteEnergy(int val)
     {
-        if (val > energy) return; //if the incoming depletion is less than the amount we have left
-
+        Debug.Log("Energy Depleted " + val);
+        if (val > energy)//if the incoming depletion is less than the amount we have left
+        {
+            return;
+        }
         energy = energy - val;
         UpdateUI();
     }
