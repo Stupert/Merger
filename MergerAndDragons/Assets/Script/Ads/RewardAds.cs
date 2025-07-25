@@ -19,6 +19,7 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
     [SerializeField] TMP_Text adBoostText;
     [SerializeField] UIPanelStateMachine UIpanelStateMachine;
     [SerializeField] EnergyManager _energyManager;
+    public JsonHandler _jsonHandler;
 
     void Awake()
     {
@@ -35,10 +36,13 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
 
     public void UpdateUI()
     {
-        adBoostsLeft--;
         adBoostText.text = adBoostsLeft.ToString();
     }
 
+    public void RemoveAd()
+    {
+        adBoostsLeft--;
+    }
 
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd()
@@ -78,6 +82,7 @@ public class RewardAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowList
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             _energyManager.MaxEnergy();
+            _jsonHandler.SaveGame();
             UIpanelStateMachine.ChangeState(UIPanelStateMachine.UIState.Gameplay);
             // Grant a reward.
         }
