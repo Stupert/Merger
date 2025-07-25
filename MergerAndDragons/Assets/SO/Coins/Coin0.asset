@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0459222c634acd4fbfec3bae1652e73, type: 3}
-  m_Name: RedGemGenerator
+  m_Name: Coin0
   m_EditorClassIdentifier: 
   ID: 0
-  UID: 031
-  name: RedGemGenerator
-  image: {fileID: 21300000, guid: 66cf459f21e014e4b825abcbe6313385, type: 3}
+  UID: 000
+  name: 
+  image: {fileID: 0}
   mergeOutcome: {fileID: 0}
   currencyPerTick: 0
   itemDescription: This is a temporary descrition of this item
   scaleFactor: 0.334
-  isGenerator: 1
-  generativeItems:
-  - {fileID: 11400000, guid: 6b99535dd51aa8e408c3aeed6cb0039f, type: 2}
-  - {fileID: 11400000, guid: 90104b04dbca3a946883e2c40892b6de, type: 2}
-  generatorCost: 15
+  isGenerator: 0
+  generativeItems: []
+  generatorCost: 0

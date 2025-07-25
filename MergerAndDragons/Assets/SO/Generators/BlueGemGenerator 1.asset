@@ -24,4 +24,4 @@ MonoBehaviour:
   generativeItems:
   - {fileID: 11400000, guid: 6488e60bfa379734db985b8ab4a746cc, type: 2}
   - {fileID: 11400000, guid: b20f3ef6f40333a4dbc345de7f86b6d5, type: 2}
-  generatorCost: 0
+  generatorCost: 15

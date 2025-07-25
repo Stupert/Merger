@@ -18,7 +18,7 @@ public class Cell : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Start() //TODO fix this unoptomised shit
     {
         UpdateCell();
         energyManager = GameObject.Find("EnergyManager").GetComponent<EnergyManager>();
